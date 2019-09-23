@@ -1,18 +1,20 @@
-import '../css/index.css';
+import '../css/display.css';
+
 import React from 'react';
 
-export default class App extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			title: 'Test!'
-		};
-	}
+import Header from 'Header';
+import Content from 'Content';
+import Footer from 'Footer';
 
+export default class App extends React.Component {
 	render() {
 		return (
-			<div>
-				<h1>{ this.state.title }</h1>
+			<div className="d-flex flex-column h-100">
+				<Header/>
+				<main role="main" className="flex-shrink-0">
+					<Content/>
+				</main>
+				<Footer/>
 			</div>
 		);
 	}
