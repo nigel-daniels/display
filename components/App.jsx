@@ -1,4 +1,4 @@
-import '../css/display.css';
+import '../css/index.css';
 
 import React from 'react';
 
