@@ -7,12 +7,19 @@ import Content from 'Content';
 import Footer from 'Footer';
 
 export default class App extends React.Component {
+	constructor(props) {
+		super(props);
+		console.log('App props: ' + JSON.stringify(props));
+		let state_path = props.file_path ? props.file_path : '/Users/ndaniels/git/display/public';
+		this.state = {file_path: state_path};
+	}
+
 	render() {
 		return (
 			<div className="d-flex flex-column h-100">
 				<Header/>
 				<main role="main" className="flex-shrink-0">
-					<Content/>
+					<Content file_path={this.state.file_path}/>
 				</main>
 				<Footer/>
 			</div>

@@ -8,6 +8,7 @@ import App from './components/App';
 const PORT = 2048;
 const app = express();
 const initialStyleTag = collectInitial();
+const file_path = process.env.FILE_PATH ? process.env.FILE_PATH : '/Users/ndaniels/git/display/public';
 
 app.use( express.static( path.resolve( __dirname, '../public' ) ) );
 
@@ -34,7 +35,7 @@ function htmlTemplate( reactDom ) {
 
         <body>
             <div id="app">${ reactDom }</div>
-            <script src="./app.bundle.js"></script>
+            <script id="app_start" src="./app.bundle.js" file_path="${file_path}"></script>
         </body>
         </html>
     `;
