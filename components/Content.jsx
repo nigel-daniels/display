@@ -1,7 +1,6 @@
 import fs from 'fs';
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import { Container, Row } from 'reactstrap';
 import ImageCard from 'ImageCard';
 
 export default class Content extends React.Component {

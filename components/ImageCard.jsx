@@ -1,65 +1,49 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-
-function DeleteModal(file) {
-	const [show, setShow] = React.useState(false);
-
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
-
-	return (
-		<div>
-			<Button variant="outline-danger" onClick={handleShow}>Delete</Button>
-
-			<Modal show={show} onHide={handleClose} animation={false}>
-				<Modal.Header closeButton>
-					<Modal.Title>Delete</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>You are about to delete {file}</Modal.Body>
-				<Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>
-						Cancel
-					</Button>
-					<Button variant="primary" onClick={handleClose}>
-						Delete
-					</Button>
-				</Modal.Footer>
-			</Modal>
-		</div>
-	);
-}
+import { Card, CardImg, CardBody, CardTitle, Button,
+	Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default class ImageCard extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {show: false};
+
+		this.toggle = this.toggle.bind(this);
 	}
 
-	closeModal(){
-		this.setState({
-			show: false,
-		});
+	handleClose() {
+		this.setState({show: false});
 	}
 
-	openModal(){
-		this.setState({
-			show: true,
-		});
+	toggle() {
+		console.log('show called ' + this.state.show);
+		this.setState(prevState => ({show: !prevState.show}));
 	}
-
-
 
 	render() {
-		return (
+
+		return (<div>
 			<Card className="image-card">
-				<Card.Img variant="top" src={this.props.file} />
-				<Card.Body>
-					<Card.Title>{this.props.file}</Card.Title>
-					<DeleteModal file={this.props.file}/>
-				</Card.Body>
+				<CardImg top src={this.props.file} />
+				<CardBody>
+					<CardTitle>{this.props.file}</CardTitle>
+					<Button outline color="danger" onClick={this.toggle}>Delete</Button>
+				</CardBody>
 			</Card>
+			<Modal isOpen={this.state.show} toggle={this.toggle}>
+				<ModalHeader toggle={this.toggle}>
+					Delete
+				</ModalHeader>
+				<ModalBody>You are about to delete {this.props.file}</ModalBody>
+				<ModalFooter>
+					<Button variant="secondary" onClick={this.toggle}>
+						Cancel
+					</Button>
+					<Button variant="primary" onClick={this.toggle}>
+						Delete
+					</Button>
+				</ModalFooter>
+			</Modal>
+		</div>
 		);
 	}
 }
