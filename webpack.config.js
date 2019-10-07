@@ -11,7 +11,7 @@ module.exports = {
 		app: './client.js'
 	},
 	resolve: {
-		extensions: ['.js', '.jsx', '.json', '.css'],
+		//extensions: ['.js', '.jsx', '.json', '.css'],
 		modules: 	[
 			path.resolve('./src'),
 			'node_modules'
@@ -20,7 +20,7 @@ module.exports = {
 	module: {
 		rules:	[
 			{ test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/},
-			{ test: /\.css$/, loader: 'css-loader'},
+			{ test: /\.css$/i, use: ['style-loader','css-loader']},
 			{ test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/, loader: 'file-loader' },
 			{ test: /\.(png|jpg|gif)$/, loader: 'file-loader' }
 		]
