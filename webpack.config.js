@@ -1,17 +1,17 @@
 //const webpack = require('webpack');
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const dev = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-	mode:			'development',
+	mode:			dev ? 'development' : 'production',
 	context: 		path.join(__dirname, 'src'),
-	devtool:		'source-map',
+	devtool:		dev ? 'none' : 'source-map',
 	entry:      	{
 		app: './client.js'
 	},
 	resolve: {
-		//extensions: ['.js', '.jsx', '.json', '.css'],
 		modules: 	[
 			path.resolve('./src'),
 			'node_modules'
@@ -20,9 +20,8 @@ module.exports = {
 	module: {
 		rules:	[
 			{ test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/},
-			{ test: /\.css$/i, use: ['style-loader','css-loader']},
-			{ test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/, loader: 'file-loader' },
-			{ test: /\.(png|jpg|gif)$/, loader: 'file-loader' }
+			{ test: /\.css$/, loader: 'style-loader!css-loader'},
+			{ test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2)$/i, loader: 'file-loader' }
 		]
 	},
 	output: {
@@ -30,10 +29,8 @@ module.exports = {
 		path:        path.join(__dirname, 'dist')
 	},
 	plugins: [
-		//new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery' }),
 		new CopyWebpackPlugin([{from: 'images', to: 'images'}])
 	],
-	externals:		[nodeExternals()],
 	watchOptions: {
 		ignored: /node_modules/
 	}

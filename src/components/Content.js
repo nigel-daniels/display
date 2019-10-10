@@ -1,4 +1,4 @@
-import fs from 'fs';
+//import fs from 'fs';
 import React from 'react';
 import { Container, Row } from 'reactstrap';
 import ImageCard from './ImageCard';
@@ -6,7 +6,7 @@ import ImageCard from './ImageCard';
 export default class Content extends React.Component {
 
 	deckDisplay() {
-		let files = fs.readdirSync(this.props.file_path);
+		let files = [];//fs.readdirSync(this.props.file_path);
 		let content = null;
 
 		content = files.map(file => <ImageCard key={file} file={file} file_path={this.props.file_path} />);

@@ -4,18 +4,19 @@ import { Card, CardImg, CardBody, CardTitle, Button, Row} from 'reactstrap';
 export default class ImageCard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { isCSR: false, message: '' };
+		//this.state = { isCSR: false, message: '' };
+		this.state = { message: '' };
 	}
 
-	componentDidMount() {
+	/*componentDidMount() {
 		this.setState({ isCSR: true });
-	}
+	}*/
 
 	delete(event) {
 		console.log('delete called ' + JSON.stringify(event));
-		if (this.state.isCSR) {
-			this.setState( {message: 'Clicked!!'});
-		}
+		//if (this.state.isCSR) {
+		this.setState( {message: 'Clicked!!'});
+		//}
 	}
 
 	render() {
