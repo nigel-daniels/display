@@ -1,4 +1,4 @@
-//const webpack = require('webpack');
+const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -12,6 +12,10 @@ module.exports = {
 		app: './client.js'
 	},
 	resolve: {
+<<<<<<< HEAD
+		extensions: ['.js', '.jsx', '.json', '.css'],
+=======
+>>>>>>> 07109bc8527b642fa074e155db2faf7bab52477e
 		modules: 	[
 			path.resolve('./src'),
 			'node_modules'
@@ -21,7 +25,13 @@ module.exports = {
 		rules:	[
 			{ test: /\.css$/i, use: [{loader: 'style-loader'}, {loader: 'css-loader'}]},
 			{ test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/},
+<<<<<<< HEAD
+			{ test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/, loader: 'file-loader' },
+			{ test: /\.(png|jpg|gif)$/, loader: 'file-loader' }
+=======
+			{ test: /\.css$/, loader: 'style-loader!css-loader'},
 			{ test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2)$/i, loader: 'file-loader' }
+>>>>>>> 07109bc8527b642fa074e155db2faf7bab52477e
 		]
 	},
 	output: {
@@ -29,6 +39,11 @@ module.exports = {
 		path:        path.join(__dirname, 'dist')
 	},
 	plugins: [
+<<<<<<< HEAD
+		//new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery' }),
+		new webpack.DefinePlugin({ 'process.env': { BROWSER: JSON.stringify(true) }}),
+=======
+>>>>>>> 07109bc8527b642fa074e155db2faf7bab52477e
 		new CopyWebpackPlugin([{from: 'images', to: 'images'}])
 	],
 	watchOptions: {
