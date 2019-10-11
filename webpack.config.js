@@ -1,4 +1,4 @@
-//const webpack = require('webpack');
+const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -11,7 +11,7 @@ module.exports = {
 		app: './client.js'
 	},
 	resolve: {
-		//extensions: ['.js', '.jsx', '.json', '.css'],
+		extensions: ['.js', '.jsx', '.json', '.css'],
 		modules: 	[
 			path.resolve('./src'),
 			'node_modules'
@@ -19,8 +19,8 @@ module.exports = {
 	},
 	module: {
 		rules:	[
+			{ test: /\.css$/i, use: [{loader: 'style-loader'}, {loader: 'css-loader'}]},
 			{ test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/},
-			{ test: /\.css$/i, use: ['style-loader','css-loader']},
 			{ test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/, loader: 'file-loader' },
 			{ test: /\.(png|jpg|gif)$/, loader: 'file-loader' }
 		]
@@ -31,6 +31,7 @@ module.exports = {
 	},
 	plugins: [
 		//new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery' }),
+		new webpack.DefinePlugin({ 'process.env': { BROWSER: JSON.stringify(true) }}),
 		new CopyWebpackPlugin([{from: 'images', to: 'images'}])
 	],
 	externals:		[nodeExternals()],

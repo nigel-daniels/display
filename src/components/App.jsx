@@ -1,11 +1,13 @@
-import '../css/index.css';
-
 import React from 'react';
 
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
 import { Button } from 'reactstrap';
+
+if (process.env.BROWSER) {
+	require('../css/index.css');
+}
 
 export default class App extends React.Component {
 	constructor(props) {

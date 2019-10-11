@@ -27,6 +27,7 @@
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "isomorphic-style-loader": "^5.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "reactstrap": "^8.0.1"

@@ -7,6 +7,8 @@ import App from './components/App';
 const PORT = 2048;
 const app = express();
 
+delete process.env.BROWSER;
+
 app.use( express.static( path.resolve( __dirname, '../public' ) ) );
 
 app.get( '/*', ( req, res ) => {
