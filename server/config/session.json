@@ -1,0 +1,10 @@
+{
+	"secret": 				"KO9gI(H*DF(g8T*HF@",
+	"name": 				"disp-conf-app.sid",
+	"domain": 				"localhost",
+	"path": 				"/",
+    "sameSite": 			true,
+	"httpOnly": 			true,
+	"resave": 				true,
+	"saveUninitialized": 	false
+}

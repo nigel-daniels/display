@@ -1,0 +1,57 @@
+{
+  "name": "Display",
+  "version": "1.0.0",
+  "description": "Display",
+  "main": "client.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nigel-daniels/display.git"
+  },
+  "keywords": [
+    "web",
+    "app",
+    "react",
+    "redux",
+	"display"
+  ],
+  "author": "Nigel Daniels",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/nigel-daniels/display/issues"
+  },
+  "homepage": "https://github.com/nigel-daniels/display#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.6",
+    "bootstrap": "^4.3.1",
+    "cross-fetch": "^3.0.1",
+    "debug": "^4.1.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.5",
+    "react-dom": "^16.3.3",
+    "react-redux": "^6.0.1",
+    "reactstrap": "^8.0.1",
+    "redux": "^4.0.1",
+    "redux-pack": "^0.1.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^5.0.2",
+    "css-loader": "^2.1.1",
+    "eslint-plugin-react": "^7.12.4",
+    "file-loader": "^3.0.1",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1"
+  },
+  "engines": {
+    "node": "^10.15.3",
+    "npm": "6.9.0"
+  }
+}
