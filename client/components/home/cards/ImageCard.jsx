@@ -8,8 +8,8 @@ export default class ImageCard extends React.Component {
 		return '/images/' + this.props.file;
 	}
 
-	delete(event) {
-		console.log('delete called for ' + this.props.file);
+	delete(file) {
+		console.log('delete called for ' + JSON.stringify(this.state));
 	}
 
 

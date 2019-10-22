@@ -22,8 +22,8 @@
   },
   "scripts": {
     "go": "./node_modules/.bin/npm-run-all -p start:server start:client",
-	"build:all": "./node_modules/.bin/npm-run-all -p build:clean build:server build:client",
-	"build:clean": "rm -fr dist",
+    "build:all": "./node_modules/.bin/npm-run-all -p build:clean build:server build:client",
+    "build:clean": "rm -fr dist",
     "build:server": "cd server && ../node_modules/.bin/webpack",
     "build:client": "cd client && ../node_modules/.bin/webpack",
     "start:client": "cd client && ../node_modules/.bin/webpack --watch --progress",

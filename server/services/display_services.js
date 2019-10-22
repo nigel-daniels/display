@@ -10,6 +10,6 @@ const debug = Debug('display_services');
 export function getFiles(req, res) {
 	debug('getFiles, called.');
 	let files = fs.readdirSync(__dirname + '/public/images/');
-	let result = files.filter(file => file.indexOf('.') !== 0);
-	return res.send({files: result});
+	let result = files.filter(file => file.indexOf('.') !== -1);
+	return res.send({'files': result});
 }
