@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardBody, CardTitle, Button, Row} from 'reactstrap';
+import { Card, CardImg, CardBody, CardFooter} from 'reactstrap';
 
 export default class ImageCard extends React.Component {
 
@@ -8,19 +8,18 @@ export default class ImageCard extends React.Component {
 		return '/images/' + this.props.file;
 	}
 
-	delete(file) {
-		console.log('delete called for ' + JSON.stringify(this.state));
+	select() {
+		// Set all image-cards unselected
+		// Set this to selected
 	}
 
 
 	render() {
 
-		return (<Card className="image-card">
+		return (<Card className="image-card" onClick={this.select}>
 			<CardImg top src={this.getImagePath()} />
-			<CardBody>
-				<CardTitle>{this.props.file}</CardTitle>
-				<Row><Button outline color="danger" onClick={this.delete}>Delete</Button></Row>
-			</CardBody>
+			<CardBody />
+			<CardFooter className="text-center">{this.props.file}</CardFooter>
 		</Card>);
 
 	}

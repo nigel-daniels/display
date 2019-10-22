@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Debug from 'debug';
-import { Container, Row } from 'reactstrap';
+import { Container, Row, Button } from 'reactstrap';
 import ImageCard from './cards/ImageCard';
 import { Spinner } from '../shared/Spinner';
 
@@ -33,6 +33,7 @@ class HomeView extends Component {
 		return 	<Container>
 			<h1 className="mt-5">Manage Display Files</h1>
 			{this.deckDisplay()}
+			<Button outline color="danger" onClick={this.delete}>Delete</Button>
 		</Container>;
 
 
