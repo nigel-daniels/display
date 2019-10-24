@@ -27,7 +27,26 @@ export default function reducer(state = INITIAL_STATE, action) {
 			success: prevState => ({ ...prevState, files: payload.files })
 		});
 	}
-
+	case actions.ADD_FILE: {
+		debug('ADD_FILE is called');
+		//debug('payload : ' + JSON.stringify(payload));
+		return handle(state, action, {
+			start: prevState => ({...prevState, isworking: true, files: null, err: null}),
+			finish: prevState => ({ ...prevState, isworking: false }),
+			failure: prevState => ({ ...prevState, err: payload.message }),
+			success: prevState => ({ ...prevState, files: payload.files })
+		});
+	}
+	case actions.DELETE_FILE: {
+		debug('DELETE_FILE is called');
+		//debug('payload : ' + JSON.stringify(payload));
+		return handle(state, action, {
+			start: prevState => ({...prevState, isworking: true, files: null, err: null}),
+			finish: prevState => ({ ...prevState, isworking: false }),
+			failure: prevState => ({ ...prevState, err: payload.message }),
+			success: prevState => ({ ...prevState, files: payload.files })
+		});
+	}
 	default:
 		return state;
 	}

@@ -14,8 +14,8 @@ class ImageCardView extends React.Component {
 	delete(event) {
 		let del = window.confirm('Delete ' + JSON.stringify(event.currentTarget) + ' image?');
 		if (del) {
-			$('.image-card').removeClass('image-card-selected'); // Set all image-cards unselected
-			$(event.currentTarget).addClass('image-card-selected');// Set this to selected
+			let file = 'foo';
+			this.props.deleteFile(file);
 		}
 	}
 
@@ -32,8 +32,7 @@ class ImageCardView extends React.Component {
 }
 
 ImageCardView.propTypes = {
-	files:			PropTypes.array,
-	getFiles:		PropTypes.func
+	deleteFile:		PropTypes.func
 };
 
 export default ImageCardView;
