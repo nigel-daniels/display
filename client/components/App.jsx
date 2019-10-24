@@ -3,7 +3,6 @@ import React from 'react';
 import Header from './shared/Header';
 import Home from './home/Home';
 import Footer from './shared/Footer';
-import { Button } from 'reactstrap';
 
 export default class App extends React.Component {
 
@@ -15,10 +14,9 @@ export default class App extends React.Component {
 		return (
 			<div className="d-flex flex-column h-100">
 				<Header/>
-				<main role="main" className="flex-shrink-0">
+				<main role="main" className="main flex-shrink-0">
 					<Home/>
 				</main>
-				<Button onClick={this.test}>Test</Button>
 				<Footer/>
 			</div>
 		);
