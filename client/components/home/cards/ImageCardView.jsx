@@ -12,17 +12,16 @@ class ImageCardView extends React.Component {
 	}
 
 	delete(event) {
-		let del = window.confirm('Delete ' + JSON.stringify(event.currentTarget) + ' image?');
+		let del = window.confirm('Delete ' + this.props.file + '?');
 		if (del) {
-			let file = 'foo';
-			this.props.deleteFile(file);
+			this.props.deleteFile(this.props.file);
 		}
 	}
 
 
 	render() {
-		debug('recder, called.');
-		return (<Card className="image-card" onClick={this.delete}>
+		debug('render, called.');
+		return (<Card className="image-card" onClick={(event) => { this.delete(event); }}>
 			<CardImg top src={this.getImagePath()} />
 			<CardBody />
 			<CardFooter className="text-center">{this.props.file}</CardFooter>

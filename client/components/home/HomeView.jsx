@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Debug from 'debug';
-import { Container, Row, Form, FormGroup, Label, CustomInput, Button } from 'reactstrap';
+import { Container, Row, Form, FormGroup, Label, Input, CustomInput, Button } from 'reactstrap';
 import ImageCard from './cards/ImageCard';
 import { Spinner } from '../shared/Spinner';
 
@@ -27,16 +27,24 @@ class HomeView extends Component {
 		}
 	}
 
+
+	submit(event) {
+		event.preventDefault();
+		debug('submit, called.');
+		debug('selected: ' + JSON.stringify($('#newFileInput').get(0).files));
+	}
+
+
 	render () {
 		debug('render, called.');
 
 		return 	<Container>
 			<h1 className="mt-5">Manage Display Files</h1>
 			{this.deckDisplay()}
-			<Form id="form-add">
+			<Form id="form-add" onSubmit={(event) => { this.submit(event);}}>
 				<FormGroup>
-	        		<Label for="file-browser">File Browser</Label>
-	        		<CustomInput type="file" id="file-browser" name="new-file" />
+	        		<Label for="newFileInput">File Browser</Label>
+	        		<Input type="file" id="newFileInput" ref="newFile" />
 	      		</FormGroup>
 				<Button outline>Upload</Button>
 			</Form>
@@ -48,7 +56,8 @@ class HomeView extends Component {
 
 HomeView.propTypes = {
 	files:			PropTypes.array,
-	getFiles:		PropTypes.func
+	getFiles:		PropTypes.func,
+	addFile:		PropTypes.func
 };
 
 export default HomeView;

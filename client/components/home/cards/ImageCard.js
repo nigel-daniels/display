@@ -17,7 +17,7 @@ let debug = Debug('ImageCard');
 const mapDispatchToProps = (dispatch) => {
 	debug('mapDispatchToProps, called');
 	return {
-		deleteFiles: (file) => {dispatch(actions.deleteFiles(file));},
+		deleteFile: (file) => {dispatch(actions.deleteFile(file));},
 	};
 };
 
