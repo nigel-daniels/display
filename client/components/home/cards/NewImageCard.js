@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import * as actions from '../../../actions';
-import ImageCardView from './ImageCardView';
+import NewImageCardView from './NewImageCardView';
 import Debug from 'debug';
 
-let debug = Debug('ImageCard');
+let debug = Debug('NewImageCard');
 
 const mapStateToProps = (state) => {
 	debug('mapStateToProps: called');
@@ -16,10 +16,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	debug('mapDispatchToProps, called');
 	return {
-		deleteFile: (file) => {dispatch(actions.deleteFile(file));},
+		addFile: (file) => {dispatch(actions.addFile(file));},
 	};
 };
 
-const ImageCard = connect(mapStateToProps, mapDispatchToProps)(ImageCardView);
+const NewImageCard = connect(mapStateToProps, mapDispatchToProps)(NewImageCardView);
 
-export default ImageCard;
+export default NewImageCard;

@@ -21,7 +21,7 @@ class ImageCardView extends React.Component {
 
 	render() {
 		debug('render, called.');
-		return (<Card className="image-card" onClick={(event) => { this.delete(event); }}>
+		return (<Card className="basic-card image-card" onClick={(event) => { this.delete(event); }}>
 			<CardImg top src={this.getImagePath()} />
 			<CardBody />
 			<CardFooter className="text-center">{this.props.file}</CardFooter>

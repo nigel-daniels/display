@@ -17,8 +17,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	debug('mapDispatchToProps, called');
 	return {
-		getFiles: () => {dispatch(actions.getFiles());},
-		addFile: (file) => {dispatch(actions.addFile(file));}
+		getFiles: () => {dispatch(actions.getFiles());}
 	};
 };
 
