@@ -13,6 +13,10 @@ class HomeView extends Component {
 		this.props.getFiles();
 	}
 
+	deleteDisplay() {
+		return this.props.files ? <p className="text-muted">Click on an image to delete it.</p> : null;
+	}
+
 	deckDisplay() {
 		if (this.props.files) {
 			let content = null;
@@ -38,6 +42,7 @@ class HomeView extends Component {
 
 		return 	<Container>
 			<h1 className="mt-5">Manage Display Files</h1>
+			{this.deleteDisplay()}
 			{this.deckDisplay()}
 		</Container>;
 
