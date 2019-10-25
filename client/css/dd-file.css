@@ -3,23 +3,8 @@
 	position: 'relative';
 }
 
-.dd-file-drag {
-	backgroundColor: 'rgba(255,255,255,.8)';
-	border: 'dashed grey 4px';
-	bottom: 0;
-	left: 0;
-	position: 'absolute';
-	right: 0;
-	top: 0;
-	zIndex: 9999;
-}
-
-.dd-file-dropzone {
-	color: 'grey';
-	fontSize: 36;
-	left: 0;
-	position: 'absolute';
-	right: 0;
-	textAlign: 'center';
-	top: '50%';
+.dd-drag-over {
+	-moz-box-shadow: 0 0 10px rgba(50, 200, 50, .4);
+	-webkit-box-shadow: 0 0 10px rgba(50, 200, 50, .4);
+	box-shadow: 0 0 10px rgba(50, 200, 50, .4);
 }

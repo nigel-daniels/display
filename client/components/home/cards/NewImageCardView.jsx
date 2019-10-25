@@ -8,21 +8,15 @@ let debug = Debug('NewImageCardView');
 
 class NewImageCardView extends React.Component {
 
-	getImagePath() {
-		return '/images/' + this.props.file;
-	}
-
 	add(files) {
-		let fileList = this.state.files;
-
-		debug('Drop ' + fileList);
+		debug('Drop ' + JSON.stringify(files));
+		this.props.addFile(files[0]);
 	}
-
 
 	render() {
 		debug('render, called.');
 		return (<Card className="basic-card new-image-card">
-			<DragDropFile handleDrop={this.add}>
+			<DragDropFile handleDrop={this.add.bind(this)}>
 				<CardImg top src="/images/server/drop-img.jpeg" />
 			</DragDropFile>
 			<CardBody>
