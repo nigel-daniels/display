@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Debug from 'debug';
-import { Container, Row, Form, FormGroup, Label, Input, CustomInput, Button } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import ImageCard from './cards/ImageCard';
 import { Spinner } from '../shared/Spinner';
-
+import Dropzone from 'react-dropzone';
 
 let debug = Debug('HomeView');
 
@@ -41,13 +41,16 @@ class HomeView extends Component {
 		return 	<Container>
 			<h1 className="mt-5">Manage Display Files</h1>
 			{this.deckDisplay()}
-			<Form id="form-add" onSubmit={(event) => { this.submit(event);}}>
-				<FormGroup>
-	        		<Label for="newFileInput">File Browser</Label>
-	        		<Input type="file" id="newFileInput" ref="newFile" />
-	      		</FormGroup>
-				<Button outline>Upload</Button>
-			</Form>
+			<Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+  				{({getRootProps, getInputProps}) => (
+    				<section>
+      					<div {...getRootProps()}>
+        					<input {...getInputProps()} />
+        					<p>Drag 'n' drop some files here, or click to select files</p>
+      					</div>
+    				</section>
+  				)}
+			</Dropzone>
 		</Container>;
 
 
