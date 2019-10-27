@@ -9,8 +9,10 @@ function getFileList() {
 	let files = fs.readdirSync(__dirname + '/public/images/');
 	return files.filter(file => file.indexOf('.') !== -1);
 }
+
+
 /* ***************************************
- *  GET, getRecipe
+ *  GET, getFiles
  * ***************************************/
 export function getFiles(req, res) {
 	debug('getFiles, called.');
@@ -18,13 +20,38 @@ export function getFiles(req, res) {
 	return res.send({'files': files});
 }
 
+
 export function addFile(req, res) {
 	debug('addFile, called.');
-	let files = getFileList();
-	return res.send({'files': files});
+
+	if (req.files.file) {
+		let imageFile = req.files.file;
+		debug('addFile, file name: ' + imageFile.name);
+		imageFile.mv(`${__dirname}/public/images/${imageFile.name}`, function(err) {
+    		if (err) {
+      			return res.status(500).send({message: 'There was an error adding the file. ' + err.message});
+    		}
+
+			let files = getFileList();
+			return res.send({'files': files});
+		});
+	} else {
+		return res.status(400).send({message: 'No file was sent.'});
+	}
 }
+
+
 export function deleteFile(req, res) {
 	debug('deleteFile, called.');
-	let files = getFileList();
-	return res.send({'files': files});
+	if (req.fileName) {
+		fs.unlinkSync(__dirname + '/public/images/' + req.fileName, (err) => {
+			if (err) {
+				return res.status(500).send({message: 'There was an error deleting the file. ' + err.message});
+			}
+			let files = getFileList();
+			return res.send({'files': files});
+		});
+	} else {
+		return res.status(400).send({message: 'No filename provided.'});
+	}
 }

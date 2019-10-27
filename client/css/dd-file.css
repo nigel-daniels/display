@@ -1,8 +1,3 @@
-.dd-file-block {
-	display: 'inline-block';
-	position: 'relative';
-}
-
 .dd-drag-over {
 	-moz-box-shadow: 0 0 10px rgba(50, 200, 50, .4);
 	-webkit-box-shadow: 0 0 10px rgba(50, 200, 50, .4);

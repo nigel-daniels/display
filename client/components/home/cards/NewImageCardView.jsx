@@ -9,7 +9,6 @@ let debug = Debug('NewImageCardView');
 class NewImageCardView extends React.Component {
 
 	add(files) {
-		debug('Drop ' + JSON.stringify(files));
 		this.props.addFile(files[0]);
 	}
 

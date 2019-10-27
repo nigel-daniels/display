@@ -14,7 +14,7 @@ class ImageCardView extends React.Component {
 	delete(event) {
 		let del = window.confirm('Delete ' + this.props.file + '?');
 		if (del) {
-			this.props.deleteFile(this.props.file);
+			this.props.deleteFile(this.props.file.name);
 		}
 	}
 

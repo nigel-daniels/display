@@ -23,11 +23,15 @@ export const getFiles = () => {
 
 export const addFile = (file) => {
 	debug('addFile, called.');
+	const formData = new FormData();
+	formData.append('file', file);
+
+	debug('addFile, formData: ' + JSON.stringify(formData));
 
 	let init = {
-		...coreInit,
+		credentials:	'same-origin',
 		method:			'POST',
-		body:			JSON.stringify({'file': file})
+		body:			formData
 	};
 
 	debug('addFile, init is: ' + JSON.stringify(init));

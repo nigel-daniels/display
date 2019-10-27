@@ -23,8 +23,8 @@ class HomeView extends Component {
 			content = this.props.files.map(file => <ImageCard key={file} file={file}/>);
 
 			return <Row>
-				{content}
 				<NewImageCard/>
+				{content}
 			</Row>;
 		} else {
 			return <Spinner/>;
