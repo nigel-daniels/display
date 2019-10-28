@@ -14,7 +14,7 @@ class HomeView extends Component {
 	}
 
 	deleteDisplay() {
-		return this.props.files ? <p className="text-muted">Click on an image to delete it.</p> : null;
+		return this.props.files && this.props.files.length > 0 ? <p className="text-muted">&nbsp;Click on an image to delete it.</p> : null;
 	}
 
 	deckDisplay() {
@@ -42,7 +42,7 @@ class HomeView extends Component {
 
 		return 	<Container>
 			<h1 className="mt-5">Manage Display Files</h1>
-			{this.deleteDisplay()}
+			<Row className="home-text"><p className="text-muted">Recommended image size is 1920 x 1080 pixels (16:9).</p>{this.deleteDisplay()}</Row>
 			{this.deckDisplay()}
 		</Container>;
 

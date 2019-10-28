@@ -1,5 +1,7 @@
 import Debug from 'debug';
 import fs from 'fs';
+import stringify from 'json-stringify-safe';
+
 const files = [];
 
 const debug = Debug('display_services');
@@ -43,8 +45,10 @@ export function addFile(req, res) {
 
 export function deleteFile(req, res) {
 	debug('deleteFile, called.');
-	if (req.fileName) {
-		fs.unlinkSync(__dirname + '/public/images/' + req.fileName, (err) => {
+	let fileName = req.params.file;
+	debug('deleteFile, file: ' + fileName);
+	if (fileName) {
+		fs.unlink(__dirname + '/public/images/' + fileName, (err) => {
 			if (err) {
 				return res.status(500).send({message: 'There was an error deleting the file. ' + err.message});
 			}

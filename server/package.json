@@ -41,6 +41,7 @@
     "@babel/preset-env": "^7.4.2",
     "babel-loader": "^8.0.5",
     "copy-webpack-plugin": "^5.0.2",
+    "json-stringify-safe": "^5.0.1",
     "source-map-loader": "^0.2.4",
     "webpack-node-externals": "^1.7.2"
   },

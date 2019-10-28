@@ -2,15 +2,15 @@ main > .container {
 	padding: 10px 0 70px 0;
 }
 
+.home-text {
+	margin-left: 0;
+}
+
 .basic-card {
 	margin: 5px;
 	padding-left: 0;
 	padding-right: 0;
 	width: 15rem;
-}
-
-#form-add {
-	margin-left: -10px;
 }
 
 .footer {

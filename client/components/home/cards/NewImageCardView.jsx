@@ -5,11 +5,28 @@ import { Card, CardImg, CardBody, CardFooter} from 'reactstrap';
 import DragDropFile from '../../shared/DragDropFile';
 
 let debug = Debug('NewImageCardView');
+const validType = ['gif', 'png', 'jpg', 'jpeg'];
 
 class NewImageCardView extends React.Component {
 
+	typeOk(file) {
+		let result = false;
+		let filename = file.name;
+
+		if (filename.lastIndexOf('.') !== -1) {
+			let ext = filename.substring(filename.lastIndexOf('.')+1, filename.length);
+			result = validType.includes(ext);
+		}
+
+		return result;
+	}
+
 	add(files) {
-		this.props.addFile(files[0]);
+		if (files) {
+			if (this.typeOk(files[0])) {
+				this.props.addFile(files[0]);
+			}
+		}
 	}
 
 	render() {

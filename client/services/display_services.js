@@ -42,15 +42,14 @@ export const addFile = (file) => {
 
 export const deleteFile = (file) => {
 	debug('deleteFile, called.');
-
+ 	debug('deleteFile, file: ' + JSON.stringify(file));
 	let init = {
 		...coreInit,
-		method:			'DELETE',
-		body:			JSON.stringify({'file': file})
+		method:			'DELETE'
 	};
 
 	debug('deleteFile, init is: ' + JSON.stringify(init));
-	return fetchOk('/files/', init)
+	return fetchOk('/files/' + file, init)
 		.then((response) => {debug('deleteFile, fetch ok.');return response;})
 		.catch((error) => {debug('deleteFile, fetch, caught err.'); throw error;});
 };
