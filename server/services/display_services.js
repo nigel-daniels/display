@@ -1,6 +1,5 @@
 import Debug from 'debug';
 import fs from 'fs';
-import stringify from 'json-stringify-safe';
 
 const files = [];
 

@@ -2,7 +2,6 @@ import express from 'express';
 import http from 'http';
 
 // Now import some basic middleware for express
-//import cors from 'cors';
 import fileUpload from 'express-fileupload';
 import bodyParser from 'body-parser';
 import favicon from 'serve-favicon';
@@ -18,7 +17,6 @@ import Debug from 'debug';
 
 // Now load up any config
 import app_cfg from './config/app.json';
-//import cors_cfg from './config/cors.json';
 
 // Set the environment setting we are using
 let env = !process.env.NODE_ENV ? app_cfg.defaultEnv : process.env.NODE_ENV;
@@ -29,7 +27,7 @@ let port		 		= env == 'production' ? app_cfg.port : app_cfg.devPort;	// The defa
 let shutdown			= false;				// Flag to see if we are shutting down
 let startup				= true;					// Flag to show we are starting up
 
-// Set up cors
+// Set up fileupload
 app.use(fileUpload());
 
 // Intercept any connection attempts while we are starting up

@@ -22,11 +22,14 @@
   },
   "scripts": {
     "go": "./node_modules/.bin/npm-run-all -p start:server start:client",
-    "build:all": "./node_modules/.bin/npm-run-all -p build:clean build:server build:client",
-    "build:clean": "rm -fr dist",
-    "build:server": "cd server && ../node_modules/.bin/webpack",
-    "build:client": "cd client && ../node_modules/.bin/webpack",
-    "start:client": "cd client && ../node_modules/.bin/webpack --watch --progress",
+	"build:dev": "./node_modules/.bin/npm-run-all -p build:clean dev:server dev:client",
+	"build:prod": "./node_modules/.bin/npm-run-all -p build:clean prod:server prod:client",
+	"build:clean": "rm -fr dist",
+	"prod:server": "cd server && ../node_modules/.bin/webpack --config webpack.prod.js",
+	"prod:client": "cd client && ../node_modules/.bin/webpack --config webpack.prod.js",
+    "dev:server": "cd server && ../node_modules/.bin/webpack --config webpack.dev.js",
+    "dev:client": "cd client && ../node_modules/.bin/webpack --config webpack.dev.js",
+    "start:client": "cd client && ../node_modules/.bin/webpack --config webpack.dev.js --watch --progress",
     "start:server": "./node_modules/.bin/nodemon -r source-map-support/register ./dist/server.js"
   },
   "devDependencies": {

@@ -8,7 +8,7 @@ const debug = Debug('server_services');
 export function start(req, res) {
 	debug('start, called.');
 
-	let env = Debug.enabled ? 'development' : 'production';
+	let env = debug.enabled ? 'development' : 'production';
 
 	return res.render('index', {'env': env});
 }

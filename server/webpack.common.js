@@ -4,16 +4,12 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	context: 		__dirname,
 
-	mode:			'development',
-
 	entry:      	'./index.js',
 
 	output: {
 		filename:	'server.js',
 		path:        __dirname + '/../dist'
 	},
-
-	devtool:		'source-map',
 
 	resolve: {
 		extensions: ['.js', '.json'],
@@ -35,10 +31,6 @@ module.exports = {
 	},
 
 	externals:		[nodeExternals()],
-
-	watchOptions: {
-		ignored: /node_modules/
-	},
 
 	plugins: [
 		new CopyWebpackPlugin([

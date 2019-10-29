@@ -4,8 +4,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	context: 		__dirname,
 
-	mode:			'development',
-
 	entry:      	[
 		'core-js/modules/es6.promise',
 		'core-js/modules/es6.array.iterator',
@@ -16,8 +14,6 @@ module.exports = {
 		filename:	'client.js',
 		path:        __dirname + '/../dist/public'
 	},
-
-	devtool:		'source-map',
 
 	plugins: 		[
 		new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery' })
@@ -38,9 +34,5 @@ module.exports = {
 			{ test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/, loader: 'file-loader' },
 			{ test: /\.(png|jpg|gif)$/, loader: 'file-loader' }
 		]
-	},
-	
-	watchOptions:	{
-		ignored: /node_modules/
 	}
 };
