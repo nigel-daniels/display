@@ -58,7 +58,7 @@ debug('The env is set to: ' + env);
 
 // Now configure the application
 debug('Setting favicon');
-app.use(favicon(__dirname + '/public/images/server/favicon.ico'));
+app.use(favicon(__dirname + '/public/images-server/favicon.ico'));
 
 //app.use(cookieParser());			// Read cookies (needed for auth)
 debug('Setting body parser url encoded and json');

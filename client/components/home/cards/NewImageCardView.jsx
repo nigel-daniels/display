@@ -33,7 +33,7 @@ class NewImageCardView extends React.Component {
 		debug('render, called.');
 		return (<Card className="basic-card new-image-card">
 			<DragDropFile handleDrop={this.add.bind(this)}>
-				<CardImg top src="/images/server/drop-img.jpeg" />
+				<CardImg top src="/images-server/drop-img.jpeg" />
 			</DragDropFile>
 			<CardBody>
 				<p className="text-muted">Drop new images above to upload them to the display. This accepts .gif, .jpg, .jpeg and .png images.</p>

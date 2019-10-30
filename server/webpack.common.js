@@ -36,7 +36,8 @@ module.exports = {
 		new CopyWebpackPlugin([
 			{from:	'node_modules',		to:	'../dist/node_modules'},
 			{from: 	'views',			to: '../dist/views'},
-			{from:	'images', 	to: '../dist/public/images'}
+			{from:	'images-display', 	to: '../dist/public/images-display'},
+			{from:	'images-server', 	to: '../dist/public/images-server'}
 		])
 	]
 };

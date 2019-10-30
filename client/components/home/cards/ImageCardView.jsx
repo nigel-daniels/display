@@ -8,7 +8,7 @@ let debug = Debug('ImageCardView');
 class ImageCardView extends React.Component {
 
 	getImagePath() {
-		return '/images/' + this.props.file;
+		return '/images-display/' + this.props.file;
 	}
 
 	delete(event) {

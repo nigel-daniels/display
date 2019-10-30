@@ -7,7 +7,7 @@ const debug = Debug('display_services');
 
 function getFileList() {
 	debug('getFileList, called.');
-	let files = fs.readdirSync(__dirname + '/public/images/');
+	let files = fs.readdirSync(__dirname + '/public/images-display/');
 	return files.filter(file => file.indexOf('.') !== -1);
 }
 
@@ -28,7 +28,7 @@ export function addFile(req, res) {
 	if (req.files.file) {
 		let imageFile = req.files.file;
 		debug('addFile, file name: ' + imageFile.name);
-		imageFile.mv(`${__dirname}/public/images/${imageFile.name}`, function(err) {
+		imageFile.mv(`${__dirname}/public/images-display/${imageFile.name}`, function(err) {
     		if (err) {
       			return res.status(500).send({message: 'There was an error adding the file. ' + err.message});
     		}
@@ -47,7 +47,7 @@ export function deleteFile(req, res) {
 	let fileName = req.params.file;
 	debug('deleteFile, file: ' + fileName);
 	if (fileName) {
-		fs.unlink(__dirname + '/public/images/' + fileName, (err) => {
+		fs.unlink(__dirname + '/public/images-display/' + fileName, (err) => {
 			if (err) {
 				return res.status(500).send({message: 'There was an error deleting the file. ' + err.message});
 			}
