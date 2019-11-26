@@ -1,5 +1,6 @@
 import Debug from 'debug';
 import fs from 'fs';
+import * as process from 'child_process';
 
 const files = [];
 
@@ -57,4 +58,28 @@ export function deleteFile(req, res) {
 	} else {
 		return res.status(400).send({message: 'No filename provided.'});
 	}
+}
+
+export function  startDisplay(req, res) {
+	debug('startDisplay, called');
+	process.exec('fbi -a -t 5 -1 --noverbose ./display/dist/public/images-display/', (err, stdout, stderr) => {
+		if (err) {
+			return res.status(500).send({message: 'There was an error starting the display.'});
+		} else {
+			return res.send();
+		}
+
+	});
+}
+
+export function  stopDisplay(req, res) {
+	debug('stopDisplay, called');
+	process.exec('pkill -f "fbi"', (err, stdout, stderr) => {
+		if (err) {
+			return res.status(500).send({message: 'There was an error starting the display.'});
+		} else {
+			return res.send();
+		}
+
+	});
 }

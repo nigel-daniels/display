@@ -53,3 +53,31 @@ export const deleteFile = (file) => {
 		.then((response) => {debug('deleteFile, fetch ok.');return response;})
 		.catch((error) => {debug('deleteFile, fetch, caught err.'); throw error;});
 };
+
+export const startDisplay = () => {
+	debug('startDisplay, called.');
+
+	let init = {
+		...coreInit,
+		method:			'GET'
+	};
+
+	debug('startDisplay, init is: ' + JSON.stringify(init));
+	return fetchOk('/display/start', init)
+		.then((response) => {debug('startDisplay, fetch ok.');return response;})
+		.catch((error) => {debug('startDisplay, fetch, caught err.'); throw error;});
+};
+
+export const stopDisplay = () => {
+	debug('stopDisplay, called.');
+
+	let init = {
+		...coreInit,
+		method:			'GET'
+	};
+
+	debug('stopDisplay, init is: ' + JSON.stringify(init));
+	return fetchOk('/display/stop', init)
+		.then((response) => {debug('stopDisplay, fetch ok.');return response;})
+		.catch((error) => {debug('stopDisplay, fetch, caught err.'); throw error;});
+};
