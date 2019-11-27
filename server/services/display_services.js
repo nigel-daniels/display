@@ -62,9 +62,12 @@ export function deleteFile(req, res) {
 
 export function  startDisplay(req, res) {
 	debug('startDisplay, called');
-	process.spawn('fim -a -q -c "while(1){next;display;sleep \'20\';};" /home/pi/display/dist/public/images-display/');
+	const fim = process.spawn('fim', ['-a', '-q', '-c', '"while(1){next;display;sleep \'20\';};"', '/home/pi/display/dist/public/images-display/'],{
+		detatch: true,
+		stdio: 'ignore'
+	});
 
-	//child.unref();
+	fim.unref();
 
 	return res.send();
 
