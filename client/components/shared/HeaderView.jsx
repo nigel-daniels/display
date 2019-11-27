@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar, NavbarBrand, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
+import { Navbar, NavbarBrand, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTv } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,6 +13,11 @@ class HeaderView extends React.Component {
 	stop(event) {
 		this.props.stopDisplay();
 	}
+
+	//<DropdownItem divider />
+	//<DropdownItem>
+	//<NavLink href="/config">Configure</NavLink>
+	//</DropdownItem>
 
 	render() {
 		return (
@@ -29,10 +34,6 @@ class HeaderView extends React.Component {
 							</DropdownItem>
 							<DropdownItem onClick={(event) => { this.stop(event); }}>
 								Stop
-							</DropdownItem>
-							<DropdownItem divider />
-							<DropdownItem>
-								<NavLink href="/config">Configure</NavLink>
 							</DropdownItem>
 						</DropdownMenu>
 	            	</UncontrolledDropdown>
