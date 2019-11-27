@@ -62,15 +62,12 @@ export function deleteFile(req, res) {
 
 export function  startDisplay(req, res) {
 	debug('startDisplay, called');
-	let child = process.spawn('fim -a -q -c "while(1){next;display;sleep \'20\';};" /home/pi/display/dist/public/images-display/', {
-		detached: true,
-		stdio: 'ignore'
-	});
+	process.spawn('fim -a -q -c "while(1){next;display;sleep \'20\';};" /home/pi/display/dist/public/images-display/');
 
-	child.unref();
+	//child.unref();
 
 	return res.send();
-	
+
 	/*process.exec('fim -a -q -c "while(1){next;display;sleep \'20\';};" /home/pi/display/dist/public/images-display/', (err, stdout, stderr) => {
 		if (err) {
 			return res.status(500).send({message: 'There was an error starting the display.'});
