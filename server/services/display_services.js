@@ -62,10 +62,11 @@ export function deleteFile(req, res) {
 
 export function  startDisplay(req, res) {
 	debug('startDisplay, called');
-	process.exec('fim -a -q -C "while(1){next;display;sleep \'20\';};" /home/pi/display/dist/public/images-display/', (err, stdout, stderr) => {
+	process.exec('fim -a -q -c "while(1){next;display;sleep \'20\';};" /home/pi/display/dist/public/images-display/', (err, stdout, stderr) => {
 		if (err) {
 			return res.status(500).send({message: 'There was an error starting the display.'});
 		} else {
+			debug('startDisplay: ' + stdout);
 			return res.send();
 		}
 
@@ -74,9 +75,10 @@ export function  startDisplay(req, res) {
 
 export function  stopDisplay(req, res) {
 	debug('stopDisplay, called');
-	process.exec('pkill -f "fim"', (err, stdout, stderr) => {
+	process.exec('pkill fim', (err, stdout, stderr) => {
 		if (err) {
 			return res.status(500).send({message: 'There was an error starting the display.'});
+			debug('startDisplay: ' + stdout);
 		} else {
 			return res.send();
 		}
