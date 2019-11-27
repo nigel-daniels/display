@@ -6,18 +6,13 @@ import { faTv } from '@fortawesome/free-solid-svg-icons';
 
 class HeaderView extends React.Component {
 
-	start(event) {
-		this.props.startDisplay();
+	reboot(event) {
+		this.props.rebootDisplay();
 	}
 
 	stop(event) {
-		this.props.stopDisplay();
+		this.props.shutdownDisplay();
 	}
-
-	//<DropdownItem divider />
-	//<DropdownItem>
-	//<NavLink href="/config">Configure</NavLink>
-	//</DropdownItem>
 
 	render() {
 		return (
@@ -26,14 +21,14 @@ class HeaderView extends React.Component {
 					<NavbarBrand href="#"><FontAwesomeIcon icon={faTv}/> Display Config</NavbarBrand>
 					<UncontrolledDropdown nav inNavbar>
 						<DropdownToggle nav caret>
-							Options
+							Control
 						</DropdownToggle>
 						<DropdownMenu right>
-							<DropdownItem onClick={(event) => { this.start(event); }}>
-								Start
+							<DropdownItem onClick={(event) => { this.reboot(event); }}>
+								Reboot
 							</DropdownItem>
-							<DropdownItem onClick={(event) => { this.stop(event); }}>
-								Stop
+							<DropdownItem onClick={(event) => { this.shutdown(event); }}>
+								Shutdown
 							</DropdownItem>
 						</DropdownMenu>
 	            	</UncontrolledDropdown>
@@ -44,8 +39,8 @@ class HeaderView extends React.Component {
 }
 
 HeaderView.propTypes = {
-	startDisplay:			PropTypes.func,
-	stopDisplay:		PropTypes.func
+	rebootDisplay:			PropTypes.func,
+	shutdownDisplay:		PropTypes.func
 };
 
 export default HeaderView;

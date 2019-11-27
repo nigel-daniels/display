@@ -16,8 +16,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	debug('mapDispatchToProps, called');
 	return {
-		startDisplay: () => {dispatch(actions.startDisplay());},
-		stopDisplay: () => {dispatch(actions.stopDisplay());}
+		rebootDisplay: () => {dispatch(actions.rebootDisplay());},
+		shutdownDisplay: () => {dispatch(actions.shutdownDisplay());}
 	};
 };
 

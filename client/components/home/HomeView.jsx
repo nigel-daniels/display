@@ -14,7 +14,7 @@ class HomeView extends Component {
 	}
 
 	deleteDisplay() {
-		return this.props.files && this.props.files.length > 0 ? <p className="text-muted">&nbsp;Click on an image to delete it.</p> : null;
+		return this.props.files && this.props.files.length > 0 ? <p className="text-muted">&nbsp;Click on an image to delete it.&nbsp;Restart after updates.</p> : null;
 	}
 
 	deckDisplay() {

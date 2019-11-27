@@ -60,28 +60,26 @@ export function deleteFile(req, res) {
 	}
 }
 
-export function  startDisplay(req, res) {
-	debug('startDisplay, called');
-	process.spawn('fim', ['-a', '-q', '-c', '"while(1){next;display;sleep \'20\';};"', '/home/pi/display/dist/public/images-display/']);
-	return res.send();
+export function  rebootDisplay(req, res) {
+	debug('rebootDisplay, called.');
 
-	/*process.exec('fim -a -q -c "while(1){next;display;sleep \'20\';};" /home/pi/display/dist/public/images-display/', (err, stdout, stderr) => {
+	process.exec('sudo reboot now', (err, stdout, stderr) => {
 		if (err) {
-			return res.status(500).send({message: 'There was an error starting the display.'});
+			return res.status(500).send({message: 'There was an error rebooting the display.'});
 		} else {
-			debug('startDisplay: ' + stdout);
+			debug('rebootDisplay: ' + stdout);
 			return res.send();
 		}
 
-	});*/
+	});
 }
 
-export function  stopDisplay(req, res) {
-	debug('stopDisplay, called');
-	process.exec('pkill -f "fim"', (err, stdout, stderr) => {
+export function  shutdownDisplay(req, res) {
+	debug('shutdownDisplay, called.');
+	process.exec('sudo shutdown -h', (err, stdout, stderr) => {
 		if (err) {
-			return res.status(500).send({message: 'There was an error starting the display.'});
-			debug('startDisplay: ' + stdout);
+			return res.status(500).send({message: 'There was an error shutting down the display.'});
+			debug('shutdownDisplay: ' + stdout);
 		} else {
 			return res.send();
 		}

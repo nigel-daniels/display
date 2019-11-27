@@ -47,8 +47,8 @@ export default function reducer(state = INITIAL_STATE, action) {
 			success: prevState => ({ ...prevState, files: payload.files })
 		});
 	}
-	case actions.START_DISPLAY: {
-		debug('START_DISPLAY is called');
+	case actions.REBOOT_DISPLAY: {
+		debug('REBOOT_DISPLAY is called');
 		//debug('payload : ' + JSON.stringify(payload));
 		return handle(state, action, {
 			start: prevState => ({...prevState, isworking: true, err: null}),
@@ -57,8 +57,8 @@ export default function reducer(state = INITIAL_STATE, action) {
 			success: prevState => ({ ...prevState })
 		});
 	}
-	case actions.STOP_DISPLAY: {
-		debug('STOP_DISPLAY is called');
+	case actions.SHUTDOWN_DISPLAY: {
+		debug('SHUTDOWN_DISPLAY is called');
 		//debug('payload : ' + JSON.stringify(payload));
 		return handle(state, action, {
 			start: prevState => ({...prevState, isworking: true, err: null}),

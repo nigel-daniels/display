@@ -1,5 +1,4 @@
 import fetch from 'cross-fetch';
-//import Fuse from 'fuse.js';
 import { coreInit, fetchOk } from './service_utils';
 import Debug from 'debug';
 
@@ -54,30 +53,30 @@ export const deleteFile = (file) => {
 		.catch((error) => {debug('deleteFile, fetch, caught err.'); throw error;});
 };
 
-export const startDisplay = () => {
-	debug('startDisplay, called.');
+export const rebootDisplay = () => {
+	debug('rebootDisplay, called.');
 
 	let init = {
 		...coreInit,
 		method:			'GET'
 	};
 
-	debug('startDisplay, init is: ' + JSON.stringify(init));
-	return fetchOk('/display/start', init)
-		.then((response) => {debug('startDisplay, fetch ok.');return response;})
-		.catch((error) => {debug('startDisplay, fetch, caught err.'); throw error;});
+	debug('rebootDisplay, init is: ' + JSON.stringify(init));
+	return fetchOk('/display/reboot', init)
+		.then((response) => {debug('rebootDisplay, fetch ok.');return response;})
+		.catch((error) => {debug('rebootDisplay, fetch, caught err.'); throw error;});
 };
 
-export const stopDisplay = () => {
-	debug('stopDisplay, called.');
+export const shutdownDisplay = () => {
+	debug('shutdownDisplay, called.');
 
 	let init = {
 		...coreInit,
 		method:			'GET'
 	};
 
-	debug('stopDisplay, init is: ' + JSON.stringify(init));
-	return fetchOk('/display/stop', init)
-		.then((response) => {debug('stopDisplay, fetch ok.');return response;})
-		.catch((error) => {debug('stopDisplay, fetch, caught err.'); throw error;});
+	debug('shutdownDisplay, init is: ' + JSON.stringify(init));
+	return fetchOk('/display/shutdown', init)
+		.then((response) => {debug('shutdownDisplay, fetch ok.');return response;})
+		.catch((error) => {debug('shutdownDisplay, fetch, caught err.'); throw error;});
 };
