@@ -75,7 +75,7 @@ export function  startDisplay(req, res) {
 
 export function  stopDisplay(req, res) {
 	debug('stopDisplay, called');
-	process.exec('pkill fim', (err, stdout, stderr) => {
+	process.exec('pkill -f "fim"', (err, stdout, stderr) => {
 		if (err) {
 			return res.status(500).send({message: 'There was an error starting the display.'});
 			debug('startDisplay: ' + stdout);
