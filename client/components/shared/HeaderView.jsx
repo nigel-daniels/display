@@ -10,7 +10,7 @@ class HeaderView extends React.Component {
 		this.props.rebootDisplay();
 	}
 
-	stop(event) {
+	shutdown(event) {
 		this.props.shutdownDisplay();
 	}
 
