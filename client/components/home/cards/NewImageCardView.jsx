@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Debug from 'debug';
-import { Card, CardImg, CardBody, CardFooter} from 'reactstrap';
+import { Card, CardImg, CardBody, CardFooter, Input} from 'reactstrap';
 import DragDropFile from '../../shared/DragDropFile';
 
 let debug = Debug('NewImageCardView');
@@ -21,6 +21,12 @@ class NewImageCardView extends React.Component {
 		return result;
 	}
 
+	upload() {
+		debug('upload, called.');
+		$('.img-upload').trigger('click');
+		return false;
+	}
+
 	add(files) {
 		if (files) {
 			if (this.typeOk(files[0])) {
@@ -33,7 +39,8 @@ class NewImageCardView extends React.Component {
 		debug('render, called.');
 		return (<Card className="basic-card new-image-card">
 			<DragDropFile handleDrop={this.add.bind(this)}>
-				<CardImg top src="/images-server/drop-img.jpeg" />
+				<Input type="file" className="img-upload"/>
+				<CardImg top src="/images-server/drop-img.jpeg" onClick={this.upload.bind(this)}/>
 			</DragDropFile>
 			<CardBody>
 				<p className="text-muted">Drop new images above to upload them to the display. This accepts .gif, .jpg, .jpeg and .png images.</p>

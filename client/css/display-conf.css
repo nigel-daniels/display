@@ -19,3 +19,7 @@ main > .container {
 	position: fixed;
 	width: 100%;
 }
+
+.img-upload {
+	display: none;
+}
